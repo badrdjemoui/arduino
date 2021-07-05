@@ -1,1 +1,21 @@
 
+int buzzer=13;
+void setup() {
+  // put your setup code here, to run once:
+ Serial.begin(9600); // opens serial port, sets data rate to 9600 bps
+  pinMode(buzzer, OUTPUT); 
+  digitalWrite(buzzer, LOW);
+  Serial.println("test");  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int sensorValue =analogRead(A0);
+  Serial.println(sensorValue); 
+  if (sensorValue > 700){
+    Serial.print("-HIGH");
+    digitalWrite(buzzer, HIGH);
+    }
+    else digitalWrite(buzzer, LOW);
+ delay(500);
+}
